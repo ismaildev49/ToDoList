@@ -36,41 +36,44 @@ while (isValid == false) {
                     ${index}. ${i}`;
           index++;
         }
-        let isCorrect = false
+        let isCorrect = false;
         while (isCorrect == false) {
-        taskToDelete = prompt(`Which task do you want to delete: 
+          taskToDelete = prompt(`Which task do you want to delete: 
                 ${list}`);
-        if (toDoList.length == 0) {
-          alert("There is no task to delete.");
-        } else if (taskToDelete > 0 && taskToDelete < toDoList.length) {
-          toDoList.splice(taskToDelete - 1, 1);
-          list = "********* TODO LIST *********";
-          index = 1;
-          for (i of toDoList) {
-            list = `${list} 
+          
+          if (toDoList.length == 0) {
+            alert("There is no task to delete.");
+          } else if (taskToDelete > 0 && taskToDelete <= toDoList.length) {
+            toDoList.splice(taskToDelete - 1, 1);
+            list = "********* TODO LIST *********";
+            index = 1;
+            for (i of toDoList) {
+              list = `${list} 
                             ${index}. ${i}`;
-            index++;
-          }
-          alert(`The task n°${taskToDelete} has been successfully deleted :
+              index++;
+            }
+            alert(`The task n°${taskToDelete} has been successfully deleted :
                         ${list}`);
-          isCorrect=true
-        } else if (isNaN(taskToDelete)) {
-          alert(`This is not a number. Please write a number`);
-        } else {
-          alert(
-            `The task you're trying to deleate doesn't exist. Please write a number between 1 and ${toDoList.length}`
-          );
+            isCorrect = true;
+          } else if (isNaN(taskToDelete)) {
+            alert(`This is not a number. Please write a number`);
+          } else {
+            alert(
+              `The task you're trying to deleate doesn't exist. Please write a number between 1 and ${toDoList.length}`
+            );
+          }
         }
-    }
         break;
       case "quit":
         alert(
           "Thank you for using my todo list program ! See you u next time."
         );
         isValid = true;
-        break
-      default :
-        alert ("The feature you writed doesn't exist. Please Write down 'new' or 'list' or 'delete' or 'quit'.")
+        break;
+      default:
+        alert(
+          "The feature you writed doesn't exist. Please Write down 'new' or 'list' or 'delete' or 'quit'."
+        );
     }
   }
 }
